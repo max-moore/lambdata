@@ -1,7 +1,3 @@
-
-
-
-
 class data_science_functions:
     # Favorite colors
     FAVORITE_COLORS = ['cyan', 'teal', 'black', 'orange', 'red']
