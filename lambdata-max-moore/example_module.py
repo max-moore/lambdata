@@ -38,7 +38,7 @@ us_state_abbrev = {
     'New York': 'NY',
     'North Carolina': 'NC',
     'North Dakota': 'ND',
-    'Northern Mariana Islands':'MP',
+    'Northern Mariana Islands': 'MP',
     'Ohio': 'OH',
     'Oklahoma': 'OK',
     'Oregon': 'OR',
@@ -60,7 +60,6 @@ us_state_abbrev = {
 }
 
 # Converts full state names to abbreviations and vice versa
-
 def state_conv(series):  
     i = 0
     for element in series:
@@ -71,9 +70,8 @@ def state_conv(series):
                 series[i] = key
         i += 1
     return series
-
+    
 # Converts list to pandas series and adds to dataframe
-
 def add_list(df, example_list, seriesname):
     df[seriesname] = pandas.Series(example_list)
     return df
