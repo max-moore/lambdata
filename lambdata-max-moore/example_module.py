@@ -1,6 +1,6 @@
 class data_science_functions:
-    # Favorite colors
-    FAVORITE_COLORS = ['cyan', 'teal', 'black', 'orange', 'red']
+    def __init__(self, dataframe):
+        self.dataframe = dataframe
 
     # State abbreviation key
     us_state_abbrev = {
@@ -63,18 +63,18 @@ class data_science_functions:
     }
 
     # Converts full state names to abbreviations and vice versa
-    def state_conv(series):  
+    def state_conv(self, examplelist):  
         i = 0
-        for element in series:
-            for key in us_state_abbrev:
+        for element in examplelist:
+            for key in self.us_state_abbrev:
                 if element == key:
-                    series[i] = us_state_abbrev[key]
-                if element == us_state_abbrev[key]:
-                    series[i] = key
+                    examplelist[i] = self.us_state_abbrev[key]
+                if element == self.us_state_abbrev[key]:
+                    examplelist[i] = key
             i += 1
-        return series
+        return examplelist
 
     # Converts list to pandas series and adds to dataframe
-    def add_list(df, example_list, seriesname):
-        df[seriesname] = pandas.Series(example_list)
-        return df
+    def add_list(self, examplelist, seriesname):
+        self.dataframe[seriesname] = pd.Series(examplelist)
+        return self.dataframe
