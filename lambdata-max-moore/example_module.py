@@ -1,6 +1,8 @@
+import pandas as pd
+
 class Lambdata_Science:
     def __init__(self, dataframe):
-        self.dataframe = dataframe
+        self.user_dataframe = dataframe
         self.us_state_abbrev = {
             'Alabama': 'AL',
             'Alaska': 'AK',
@@ -61,18 +63,18 @@ class Lambdata_Science:
         }
 
     # Converts full state names to abbreviations and vice versa
-    def state_conv(self, state_column):  
+    def state_conv(self, state_column_str):  
         i = 0
-        for element in self.dataframe[state_column]:
+        for element in self.user_dataframe[state_column_str]:
             for key in self.us_state_abbrev:
                 if element == key:
-                    self.dataframe[state_column[i]] = self.us_state_abbrev[key]
+                    self.user_dataframe[state_column_str[i]] = self.us_state_abbrev[key]
                 if element == self.us_state_abbrev[key]:
-                    self.dataframe[state_column[i]] = key
+                    self.user_dataframe[state_column_str[i]] = key
             i += 1
-        return self.dataframe[state_column]
+        return self.user_dataframe[state_column_str]
 
     # Converts list to pandas series and adds to dataframe
-    def add_list(self, example_list, seriesname):
-        self.dataframe[seriesname] = pd.Series(example_list)
-        return self.dataframe
+    def add_list(self, example_list, series_name):
+        self.user_dataframe[series_name] = pd.Series(example_list)
+        return self.user_dataframe
